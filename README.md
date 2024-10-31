@@ -85,7 +85,7 @@ Figure 6: Employment Variable Rate vs. Successful Marketing Instances
 
 Recommendation
 
-Persistency is a key. People tend to sign up for long-term deposit accounts, particularly when they perceive there is softening in the labor market.
+Persistency is a key. People tend to sign up for long-term deposit accounts, particularly when they perceive there is softening in the labor market. Therefore, target costumers repeatedly especially if they answered call previously. This marketing should be hiked up where there is a negative news from the labor market. 
 
 
 Works Cited
