@@ -25,12 +25,8 @@ Round 1 – Initial Run
 
 I dropped the highly controversial 'duration' column and encoded the rest of the model to a numeric type. I confirmed that the dataset was imbalanced given the nature of the marketing campaign. In my first run, I left each and every model with their default setting. Models ran pretty fast, however, they didn’t produce as confident models as the ones by Moro & Laureano. Table 1 shows the accuracy rate and the performance time of each of my models.
 
- Model                Train score  Test score  Average fit time
-                                                         
-KNN                     0.911139    0.894241          5.596900
-Logistic Regression     0.900262    0.900651          0.105780
-SVC                     0.897446    0.897737         68.543189
-Decision Tree           0.995856    0.845586          0.241004
+ 
+<img width="519" alt="Screen Shot 2024-10-31 at 4 56 13 PM" src="https://github.com/user-attachments/assets/2ea079e7-1b04-4a29-87eb-61fc1e7b546f">
 
 Table 1: Result from the Initial one
 
@@ -49,26 +45,8 @@ Round 2 – Improving the Model
 
 I added a set of parameters and ran GridSearchCV models in hopes to improve accuracy on each of the models. Because parameters bring inherent complexity and need more resources to run, I wanted to reduce the number of features that would be added to the model. I ran a ridge model to understand which features were the most important from the original 19 features. The ridge model showed that ['emp.var.rate', 'euribor3m', 'nr.employed', 'cons.price.idx', 'pdays', 'contact', 'month'] where the most relevant attributes shown in Table 2.
 
- 	  feature 	        coef
-4 	emp.var.rate 	    -0.190642
-7 	euribor3m 	      0.154268
-8 	nr.employed 	    -0.105342
-5 	cons.price.idx 	  0.080235
-2 	pdays 	          -0.051252
-15 	contact 	        -0.042479
-16 	month 	          -0.030056
-6 	cons.conf.idx 	  0.018913
-18 	poutcome 	        0.018598
-12 	default 	        -0.007027
-10 	marital 	        0.006108
-17 	day_of_week 	    0.005794
-3 	previous 	        -0.005419
-0 	age 	            0.005228
-11 	education 	      0.004619
-1 	campaign 	        -0.004216
-13 	housing 	        -0.001970
-9 	job 	            0.000965
-14 	loan 	            0.000537
+ 	 
+<img width="210" alt="Screen Shot 2024-10-31 at 4 56 44 PM" src="https://github.com/user-attachments/assets/5cd76c03-c0e1-4da7-9187-70376487100e">
 
 Table 2: Results from the Ridge Model showing the most relevant features
 
@@ -81,12 +59,7 @@ Figure 3: Adding “L1” penalty to the seven most relevant features from the R
 Using a correlation matrix, I decided to keep the five most highly correlated features to my target ‘y’, minus the three seasonal indicators I eliminated previously. The result for my third run is shown in Table 3 and Figure 4 shows their corresponding ROC Curve. 
 
 
-Model                    Average fit time  Train score  Test score  Best Model Parameters                                                                 
-                                                            
-KNN                        117.012141     0.897119    0.897889   {'knn__n_neighbors': 19, 'knn__p': 1, 'knn__we... 
-Logistic Regression         37.490206     0.900262    0.900651   {'poly__degree': 3}
-SVC                       3149.510995     0.897735    0.897889   {'svc__kernel': 'rbf'} 
-Decision Tree                4.609488     0.897373    0.897521   {'max_depth': 2, 'min_impurity_decrease': 0.01, 'min_samples_split': 0.1}
+<img width="568" alt="Screen Shot 2024-10-31 at 4 57 11 PM" src="https://github.com/user-attachments/assets/c8ff6d67-633e-4602-9029-64020bf92d39">
 
 Table 3: Results from the third set of models
 
